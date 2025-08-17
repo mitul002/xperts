@@ -74,10 +74,6 @@ xperts/
    Open: http://localhost/xperts/
    ```
 
-5. **Test login**
-   - Username: `testuser`
-   - Password: `password`
-
 ## 📱 How to Use
 
 1. **Home Page**: Automatically redirects to login
@@ -122,7 +118,7 @@ xperts/
 5. **Clear Comments**: Code is well documented
 6. **Modular Structure**: Each page has clear purpose
 
-## 📧 Teacher Explanation Points
+## 📧 Explanation Points
 
 1. **Frontend**: HTML5, CSS3, JavaScript (simple and clean)
 2. **Backend**: PHP for server-side processing
