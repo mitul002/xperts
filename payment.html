@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment – Xperts</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="auth-container">
+    <h1 class="auth-title">Payment Method</h1>
+    <p class="auth-subtitle">Choose your preferred payment option</p>
+    
+    <form action="review.html">
+      <!-- Payment Methods -->
+      <div style="margin: 1.5rem 0;">
+        <h3 style="margin-bottom: 1rem; color: var(--text);">Select Payment Method:</h3>
+        <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+          <label style="display: flex; align-items: center; padding: 0.8rem; border: 1px solid var(--border); border-radius: 8px; cursor: pointer;">
+            <input type="radio" name="payment" value="credit" required style="margin-right: 0.8rem;">
+            <span>💳 Credit Card</span>
+          </label>
+          <label style="display: flex; align-items: center; padding: 0.8rem; border: 1px solid var(--border); border-radius: 8px; cursor: pointer;">
+            <input type="radio" name="payment" value="bkash" style="margin-right: 0.8rem;">
+            <span>📱 Bkash</span>
+          </label>
+          <label style="display: flex; align-items: center; padding: 0.8rem; border: 1px solid var(--border); border-radius: 8px; cursor: pointer;">
+            <input type="radio" name="payment" value="nagad" style="margin-right: 0.8rem;">
+            <span>📱 Nagad</span>
+          </label>
+          <label style="display: flex; align-items: center; padding: 0.8rem; border: 1px solid var(--border); border-radius: 8px; cursor: pointer;">
+            <input type="radio" name="payment" value="rocket" style="margin-right: 0.8rem;">
+            <span>🚀 Rocket</span>
+          </label>
+          <label style="display: flex; align-items: center; padding: 0.8rem; border: 1px solid var(--border); border-radius: 8px; cursor: pointer;">
+            <input type="radio" name="payment" value="cash" style="margin-right: 0.8rem;">
+            <span>💵 Cash on Delivery</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Account/Card Details -->
+      <div class="form-group">
+        <label for="account">Account / Card Number</label>
+        <input type="text" id="account" class="form-control" placeholder="Enter account or card number" required>
+      </div>
+
+      <!-- Continue Button -->
+      <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+        Continue to Review
+      </button>
+    </form>
+
+    <!-- Back Link -->
+    <div style="margin-top: 1.5rem; text-align: center;">
+      <a href="providers.html" class="auth-link">← Back to Providers</a>
+    </div>
+  </div>
+</body>
+</html>

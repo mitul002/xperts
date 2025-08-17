@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xperts – Profile</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <img src="logo.png" alt="XPERTS Logo">
+      XPERTS
+    </div>
+    <img src="https://i.pravatar.cc/100?img=12" alt="Profile" class="avatar">
+  </header>
+
+  <!-- Profile Content -->
+  <div class="container">
+    <!-- Profile Info Card -->
+    <div class="card profile-info">
+      <img src="https://i.pravatar.cc/100?img=12" alt="Profile" class="profile-avatar">
+      <h2 class="profile-name">user</h2>
+      <p class="profile-phone">+8801234567890</p>
+    </div>
+
+    <!-- Profile Form -->
+    <div class="card">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" class="form-control" value="user" readonly>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="text" id="phone" class="form-control" value="+8801234567890" readonly>
+      </div>
+      <button type="button" class="btn btn-primary" onclick="editProfile()">Edit Profile</button>
+    </div>
+
+    <!-- Menu Items -->
+    <div class="card">
+      <div class="menu-item" onclick="window.location.href='credit.html'">
+        <i class="fas fa-wallet"></i>
+        <span>Credit & Wallet</span>
+      </div>
+      <div class="menu-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Saved Locations</span>
+      </div>
+      <div class="menu-item">
+        <i class="fas fa-clipboard-list"></i>
+        <span>Service Requests</span>
+      </div>
+      <div class="menu-item">
+        <i class="fas fa-tags"></i>
+        <span>Offers & Promotions</span>
+      </div>
+      <div class="menu-item">
+        <i class="fas fa-cog"></i>
+        <span>Settings</span>
+      </div>
+      <div class="menu-item">
+        <i class="fas fa-question-circle"></i>
+        <span>Help & Support</span>
+      </div>
+      <div class="menu-item logout" onclick="window.location.href='login.php'">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Logout</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <a href="dashboard.html" class="nav-item">
+      <i class="nav-icon fa-solid fa-house"></i>
+      Home
+    </a>
+    <a href="inbox.html" class="nav-item">
+      <i class="nav-icon fa-solid fa-envelope"></i>
+      Inbox
+    </a>
+    <a href="myorders.html" class="nav-item">
+      <i class="nav-icon fa-solid fa-box"></i>
+      Orders
+    </a>
+    <a href="profile.html" class="nav-item active">
+      <i class="nav-icon fa-solid fa-user"></i>
+      Profile
+    </a>
+  </nav>
+
+  <script>
+    function editProfile() {
+      alert('Edit profile functionality would be implemented here.');
+    }
+  </script>
+</body>
+</html>

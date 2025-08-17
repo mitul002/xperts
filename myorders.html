@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Orders – XPERTS</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-X+8H..."
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <style>
+    :root {
+      --primary: #ff9800;
+      --primary-dark: #e68a00;
+      --bg: #f0f2f5;
+      --nav-glass: rgba(255, 255, 255, 0.7);
+      --nav-glass-blur: 12px;
+      --text-dark: #333;
+      --text-medium: #666;
+      --text-light: #999;
+    }
+
+    /* --- Global --- */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text-dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden; /* prevent horizontal scroll when drawer is open */
+    }
+
+    /* --- Header --- */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,.05);
+      position: relative;
+      z-index: 2;
+    }
+    .page-header h1 {
+      margin: 0;
+      color: var(--primary);
+      font-size: 1.4rem;
+      letter-spacing: .3px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+    }
+    .page-header h1 img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
+    .avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 0 2px var(--primary);
+      cursor: pointer;
+    }
+
+    /* --- Orders Container (Main Content) --- */
+    .orders-container {
+      flex: 1; /* Takes up remaining vertical space */
+      padding: 1rem;
+      overflow-y: auto; /* Enables scrolling for order list */
+    }
+
+    .orders-container h2 {
+        font-size: 1.rem;
+        color: var(--primary-dark);
+        margin-bottom: 1rem;
+        padding-left: 0.5rem;
+        text-align: center;
+    }
+
+    /* Orders Tab Navigation */
+    .orders-tabs {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 1.5rem;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        padding: 0.5rem;
+    }
+
+    .orders-tab {
+        flex: 1;
+        text-align: center;
+        padding: 0.8rem 0.5rem;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--text-medium);
+        cursor: pointer;
+        border-radius: 8px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .orders-tab.active {
+        background-color: var(--primary);
+        color: white;
+    }
+
+    .orders-tab:hover:not(.active) {
+        background-color: var(--bg);
+        color: var(--text-dark);
+    }
+
+
+    /* Order Card */
+    .order-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      margin-bottom: 1rem;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .order-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .order-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px dashed #eee;
+    }
+
+    .order-header .order-id {
+      font-weight: 700;
+      color: var(--primary-dark);
+      font-size: 1rem;
+    }
+
+    .order-header .order-date {
+      font-size: 0.85rem;
+      color: var(--text-medium);
+    }
+
+    .order-details p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      line-height: 1.5;
+    }
+
+    .order-details strong {
+        color: var(--primary);
+    }
+
+    .order-status {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-top: 0.5rem;
+      align-self: flex-start; /* Align status badge to left */
+    }
+
+    .status-pending { background-color: #ffeb3b; color: #795548; } /* Amber */
+    .status-completed { background-color: #a5d6a7; color: #2e7d32; } /* Green */
+    .status-cancelled { background-color: #ef9a9a; color: #c62828; } /* Red */
+    .status-ongoing { background-color: #90caf9; color: #1976d2; } /* Blue */
+
+    .order-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.8rem;
+      border-top: 1px dashed #eee;
+      padding-top: 0.8rem;
+      margin-top: 0.8rem;
+    }
+
+    .order-actions button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .order-actions button.secondary {
+        background-color: #ddd;
+        color: var(--text-dark);
+    }
+
+    .order-actions button:hover {
+      background-color: var(--primary-dark);
+    }
+    .order-actions button.secondary:hover {
+        background-color: #ccc;
+    }
+
+
+    /* --- Bottom Nav --- */
+    .bottom-nav {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: .8rem 0;
+      backdrop-filter: blur(var(--nav-glass-blur));
+      background: var(--nav-glass);
+      position: sticky;
+      bottom: 0;
+      width: 100%;
+      box-shadow: 0 -2px 12px rgba(0,0,0,.08);
+      z-index: 2;
+    }
+
+    .bottom-nav a {
+      color: #666;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: .75rem;
+      transition: color .3s;
+      cursor: pointer;
+    }
+
+    .bottom-nav a .nav-icon {
+      font-size: 22px;
+      margin-bottom: .15rem;
+    }
+
+    .bottom-nav a:hover,
+    .bottom-nav a.active {
+      color: var(--primary);
+    }
+
+
+/* --- Side Drawer --- */
+    .side-drawer {
+      position: fixed;
+      top: 0;
+      right: -320px; /* hidden offscreen */
+      width: 320px;
+      height: 100vh;
+      background: #fff;
+      box-shadow: -4px 0 16px rgba(0,0,0,0.15);
+      padding: 1.5rem 2rem;
+      box-sizing: border-box;
+      transition: right 0.3s ease;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+    }
+    .side-drawer.open {
+      right: 0;
+    }
+    .side-drawer header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    .side-drawer header h3 {
+      margin: 0;
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.2rem;
+    }
+    .side-drawer header button.close-btn {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #888;
+      transition: color 0.3s;
+    }
+    .side-drawer header button.close-btn:hover {
+      color: var(--primary);
+    }
+    .side-drawer .profile-pic {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 1rem auto;
+      box-shadow: 0 0 0 3px var(--primary);
+    }
+    .side-drawer .user-name {
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin-bottom: 0.2rem;
+    }
+    .side-drawer .user-email {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+    
+    .side-drawer nav a {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      color: var(--primary-dark);
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px solid #eee;
+      transition: 
+        background-color 0.3s ease,
+        color 0.3s ease,
+        padding-left 0.3s ease;
+      border-radius: 8px;
+    }
+
+    .side-drawer nav a i {
+      color: var(--primary-dark);
+      transition: color 0.3s ease;
+      min-width: 20px;
+      text-align: center;
+    }
+
+    .side-drawer nav a:hover {
+      color: #fff;
+      background-color: var(--primary);
+      padding-left: 1.5rem; /* subtle indent on hover */
+    }
+
+    .side-drawer nav a:hover i {
+      color: #fff;
+    }
+
+    /* Overlay for drawer */
+    .drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.3);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 9998;
+    }
+    .drawer-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <h1><img src="logo.png" alt="XPERTS Logo" />XPERTS</h1>
+    <img
+      src="https://i.pravatar.cc/100?img=12"
+      alt="User Avatar"
+      class="avatar"
+      id="profileAvatar"
+      aria-label="Open profile menu"
+    />
+  </header>
+
+  <section class="orders-container">
+    <h2>My Service Orders</h2>
+
+    <div class="orders-tabs">
+        <div class="orders-tab active" data-filter="all">All</div>
+        <div class="orders-tab" data-filter="ongoing">Ongoing</div>
+        <div class="orders-tab" data-filter="completed">Completed</div>
+        <div class="orders-tab" data-filter="pending">Pending</div>
+        <div class="orders-tab" data-filter="cancelled">Cancelled</div>
+    </div>
+
+    <div id="ordersList">
+        </div>
+  </section>
+
+  <nav class="bottom-nav">
+    <a href="dashboard.html">
+       <i class="fa-solid fa-house nav-icon"></i>Home
+    </a>
+    <a href="inbox.html">
+      <i class="fa-solid fa-envelope nav-icon"></i>Inbox
+    </a>
+    <a href="myorders.html" class="active">
+      <i class="fa-solid fa-box nav-icon"></i>Orders
+    </a>
+    <a id="profileLink" title="Profile" style="cursor:pointer;">
+     <i class="fa-solid fa-user nav-icon"></i>Profile
+    </a>
+  </nav>
+
+
+    <div class="side-drawer" id="sideDrawer" aria-hidden="true">
+    <header>
+      <h3></h3>
+      <button class="close-btn" aria-label="Close Profile Drawer" id="drawerCloseBtn">&times;</button>
+    </header>
+    <img
+      src="https://i.pravatar.cc/100?img=12"
+      alt="User Profile Picture"
+      class="profile-pic"
+    />
+    <div class="user-name">user</div>
+    <div class="user-email">user@example.com</div>
+    <nav>
+      <a href="profile.html"><i class="fas fa-user"></i> Profile Details</a>
+      <a href="myorders.html"><i class="fas fa-box"></i> My Orders</a>
+      <a href="credit.html"><i class="fas fa-wallet"></i> Credit</a>
+      <a href="saved-location.html"><i class="fas fa-map-marker-alt"></i> Saved Location</a>
+      <a href="service-request.html"><i class="fas fa-concierge-bell"></i> Service Request</a>
+      <a href="offers.html"><i class="fas fa-tags"></i> Offers</a>
+      <a href="settings.html"><i class="fas fa-gear"></i> Settings</a>
+      <a href="help.html"><i class="fas fa-question-circle"></i> Help</a>
+      <br>
+      <a href="login.php" style="border: 2px solid var(--primary-dark)"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </nav>
+  </div>
+
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <script>
+    // Sample Order Data (can be fetched from JSON in a real app)
+    const ordersData = [
+        { id: 'ORD001', service: 'Electrical Repair', date: '2025-06-15 10:00 AM', price: '$75.00', status: 'ongoing', description: 'Faulty wiring in kitchen lights.' },
+        { id: 'ORD002', service: 'Home Cleaning', date: '2025-06-10 02:00 PM', price: '$120.00', status: 'completed', description: 'Full house deep cleaning service.' },
+        { id: 'ORD003', service: 'Plumbing Service', date: '2025-06-08 09:30 AM', price: '$90.00', status: 'completed', description: 'Leaky faucet in bathroom.' },
+        { id: 'ORD004', service: 'AC Maintenance', date: '2025-06-20 11:00 AM', price: '$60.00', status: 'pending', description: 'Annual AC unit check-up.' },
+        { id: 'ORD005', service: 'Pest Control', date: '2025-06-05 04:00 PM', price: '$150.00', status: 'cancelled', description: 'Scheduled cockroach extermination.' },
+        { id: 'ORD006', service: 'Carpentry Work', date: '2025-06-18 01:00 PM', price: '$200.00', status: 'ongoing', description: 'Custom bookshelf installation.' },
+        { id: 'ORD007', service: 'Gardening Service', date: '2025-06-25 09:00 AM', price: '$85.00', status: 'pending', description: 'Lawn mowing and plant care.' }
+    ];
+
+    const ordersList = document.getElementById('ordersList');
+    const ordersTabs = document.querySelectorAll('.orders-tab');
+
+    // Function to render orders
+    function renderOrders(filter = 'all') {
+        ordersList.innerHTML = ''; // Clear current list
+
+        const filteredOrders = ordersData.filter(order => {
+            if (filter === 'all') return true;
+            return order.status === filter;
+        });
+
+        if (filteredOrders.length === 0) {
+            ordersList.innerHTML = `<p style="text-align: center; color: var(--text-medium); padding: 2rem;">No ${filter} orders found.</p>`;
+            return;
+        }
+
+        filteredOrders.forEach(order => {
+            const orderCard = document.createElement('div');
+            orderCard.classList.add('order-card');
+            orderCard.innerHTML = `
+                <div class="order-header">
+                    <span class="order-id">#${order.id}</span>
+                    <span class="order-date">${order.date}</span>
+                </div>
+                <div class="order-details">
+                    <p>Service: <strong>${order.service}</strong></p>
+                    <p>Description: ${order.description}</p>
+                    <p>Price: <strong>${order.price}</strong></p>
+                </div>
+                <span class="order-status status-${order.status}">${order.status}</span>
+                <div class="order-actions">
+                    <button>View Details</button>
+                    <button class="secondary">Contact</button>
+                </div>
+            `;
+            ordersList.appendChild(orderCard);
+        });
+    }
+
+    // Tab switching functionality
+    ordersTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            ordersTabs.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            const filter = this.dataset.filter;
+            renderOrders(filter);
+        });
+    });
+
+    // --- Side Drawer Logic (Copied from dashboard.html / inbox.html) ---
+    const sideDrawer = document.getElementById("sideDrawer");
+    const drawerOverlay = document.getElementById("drawerOverlay");
+    const drawerCloseBtn = document.getElementById("drawerCloseBtn");
+    const profileAvatar = document.getElementById("profileAvatar"); // This is the avatar in the header
+    const profileLink = document.getElementById("profileLink"); // This is the profile link in the bottom nav
+
+    function openDrawer() {
+      sideDrawer.classList.add("open");
+      drawerOverlay.classList.add("active");
+      sideDrawer.setAttribute("aria-hidden", "false");
+    }
+    function closeDrawer() {
+      sideDrawer.classList.remove("open");
+      drawerOverlay.classList.remove("active");
+      sideDrawer.setAttribute("aria-hidden", "true");
+    }
+
+    profileAvatar.addEventListener("click", openDrawer);
+    profileLink.addEventListener("click", openDrawer); // Added this line to fix the issue
+    drawerCloseBtn.addEventListener("click", closeDrawer);
+    drawerOverlay.addEventListener("click", closeDrawer);
+
+    // Optional: Close drawer with Escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && sideDrawer.classList.contains("open")) {
+        closeDrawer();
+      }
+    });
+
+    // Initial render of orders when page loads
+    document.addEventListener('DOMContentLoaded', () => {
+        renderOrders('all'); // Render all orders by default
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard – XPERTS</title>
+  <!-- Font Awesome Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-X+8H..." crossorigin="anonymous" referrerpolicy="no-referrer"
+  />
+  <style>
+    :root {
+      --primary: #ff9800;
+      --primary-dark: #e68a00;
+      --bg: #f0f2f5;
+      --nav-glass: rgba(255, 255, 255, 0.7);
+      --nav-glass-blur: 12px;
+    }
+
+    /* --- Global --- */
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden; /* prevent horizontal scroll when drawer is open */
+    }
+
+    
+
+    /* --- Header --- */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,.05);
+      position: relative;
+      z-index: 2;
+    }
+    .page-header h1 {
+      margin: 0;
+      color: var(--primary);
+      font-size: 1.4rem;
+      letter-spacing: .3px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+    }
+    .page-header h1 img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
+    .avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 0 2px var(--primary);
+      cursor: pointer;
+    }
+
+    /* --- Search Bar --- */
+    .search-wrapper {
+      padding: 1.2rem 2rem 0;
+    }
+    .search-bar {
+      width: 100%;
+      display: flex;
+      gap: .6rem;
+    }
+    .search-bar input {
+      flex: 1;
+      padding: .9rem 1.1rem;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+    .search-bar button {
+      padding: .9rem 1.2rem;
+      border: none;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .search-bar button:hover {
+      background: var(--primary-dark);
+    }
+
+    /* --- Grids --- */
+    .grid-title {
+      font-weight: 600;
+      margin: 2.5rem 2rem 1rem;
+      color: #555;
+    }
+    .service-grid,
+    .freq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1.2rem;
+      padding: 0 2rem;
+      
+    }
+    .service-card,
+    .freq-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.07);
+      padding: 1.8rem .7rem;
+      text-align: center;
+      cursor: pointer;
+      transition: transform .3s, box-shadow .3s, background-color .3s, color .3s;
+      /* square */
+      aspect-ratio: 1/1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .service-card:hover,
+    .freq-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 26px rgba(0,0,0,.12);
+      background-color: var(--primary);
+      color: #fff;
+    }
+    .service-icon, .freq-icon {
+      font-size: 38px;
+      color: var(--primary);
+      margin-bottom: .55rem;
+      transition: color .3s;
+    }
+    .service-card:hover .service-icon,
+    .freq-card:hover .freq-icon {
+      color: #fff;
+    }
+    .service-card span,
+    .freq-card span {
+      font-weight: 600;
+      font-size: .95rem;
+    }
+
+    /* --- Bottom Nav --- */
+    .bottom-nav {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: .8rem 0;
+      backdrop-filter: blur(var(--nav-glass-blur));
+      background: var(--nav-glass);
+      position: sticky;
+      bottom: 0;
+      width: 100%;
+      box-shadow: 0 -2px 12px rgba(0,0,0,.08);
+      z-index: 2;
+    }
+
+    .bottom-nav a {
+      color: #666;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: .75rem;
+      transition: color .3s;
+      cursor: pointer;
+    }
+
+    .bottom-nav a .nav-icon {
+      font-size: 22px;
+      margin-bottom: .15rem;
+    }
+
+    .bottom-nav a:hover,
+    .bottom-nav a.active {
+      color: var(--primary);
+    }
+
+    /* --- Side Drawer --- */
+    .side-drawer {
+      position: fixed;
+      top: 0;
+      right: -320px; /* hidden offscreen */
+      width: 320px;
+      height: 100vh;
+      background: #fff;
+      box-shadow: -4px 0 16px rgba(0,0,0,0.15);
+      padding: 1.5rem 2rem;
+      box-sizing: border-box;
+      transition: right 0.3s ease;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+    }
+    .side-drawer.open {
+      right: 0;
+    }
+    .side-drawer header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    .side-drawer header h3 {
+      margin: 0;
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.2rem;
+    }
+    .side-drawer header button.close-btn {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #888;
+      transition: color 0.3s;
+    }
+    .side-drawer header button.close-btn:hover {
+      color: var(--primary);
+    }
+    .side-drawer .profile-pic {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 1rem auto;
+      box-shadow: 0 0 0 3px var(--primary);
+    }
+    .side-drawer .user-name {
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin-bottom: 0.2rem;
+    }
+    .side-drawer .user-email {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+    
+    .side-drawer nav a {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      color: var(--primary-dark);
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px solid #eee;
+      transition: 
+        background-color 0.3s ease,
+        color 0.3s ease,
+        padding-left 0.3s ease;
+      border-radius: 8px;
+    }
+
+    .side-drawer nav a i {
+      color: var(--primary-dark);
+      transition: color 0.3s ease;
+      min-width: 20px;
+      text-align: center;
+    }
+
+    .side-drawer nav a:hover {
+      color: #fff;
+      background-color: var(--primary);
+      padding-left: 1.5rem; /* subtle indent on hover */
+    }
+
+    .side-drawer nav a:hover i {
+      color: #fff;
+    }
+
+    /* Overlay for drawer */
+    .drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.3);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 9998;
+    }
+    .drawer-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="page-header">
+    <h1>
+      <img src="logo.png" alt="XPERTS Logo" />
+      XPERTS
+    </h1>
+    <img
+      src="https://i.pravatar.cc/100?img=12"
+      alt="Profile"
+      class="avatar"
+      id="profileAvatar"
+    />
+  </header>
+
+  <!-- Big Search -->
+  <div class="search-wrapper">
+    <form class="search-bar" onsubmit="saveLocation(event)">
+      <input
+        type="text"
+        id="loc"
+        placeholder="Search or set your location..."
+      />
+      <button type="submit"><i class="fa-solid fa-search"></i></button>
+    </form>
+  </div>
+
+  <!-- Frequently Used -->
+  <h2 class="grid-title">Frequently Used Services</h2>
+  <section class="freq-grid">
+    <div class="freq-card" onclick="goTo('providers.html?service=Electrician')">
+      <i class="fa-solid fa-bolt-lightning freq-icon"></i>
+      <span>Electrician</span>
+    </div>
+    <div class="freq-card" onclick="goTo('providers.html?service=Plumber')">
+      <i class="fa-solid fa-faucet freq-icon"></i>
+      <span>Plumber</span>
+    </div>
+    <div
+      class="freq-card"
+      onclick="goTo('providers.html?service=Home%20Cleaning')"
+    >
+      <i class="fa-solid fa-broom freq-icon"></i>
+      <span>Home Cleaning</span>
+    </div>
+    <div class="freq-card" onclick="goTo('providers.html?service=AC%20Repair')">
+      <i class="fa-solid fa-fan freq-icon"></i>
+      <span>AC Repair</span>
+    </div>
+    <div
+      class="freq-card"
+      onclick="goTo('providers.html?service=Laptop%20Repair')"
+    >
+      <i class="fa-solid fa-laptop freq-icon"></i>
+      <span>Laptop Repair</span>
+    </div>
+    <div class="freq-card" onclick="goTo('providers.html?service=Carpenter')">
+      <i class="fa-solid fa-hammer freq-icon"></i>
+      <span>Carpenter</span>
+    </div>
+  </section>
+
+  <!-- All Services -->
+  <h2 class="grid-title">All Services</h2>
+  <section class="service-grid">
+    <!-- Main Services -->
+    <div class="service-card" onclick="goTo('providers.html?service=Electrician')">
+      <i class="fa-solid fa-bolt-lightning service-icon"></i>
+      <span>Electrician</span>
+    </div>
+    <div class="service-card" onclick="goTo('providers.html?service=Painter')">
+      <i class="fa-solid fa-paint-roller service-icon"></i>
+      <span>Painter</span>
+    </div>
+    <div class="service-card" onclick="goTo('providers.html?service=Plumber')">
+      <i class="fa-solid fa-faucet service-icon"></i>
+      <span>Plumber</span>
+    </div>
+    <div class="service-card" onclick="goTo('providers.html?service=Mechanic')">
+      <i class="fa-solid fa-gears service-icon"></i>
+      <span>Mechanic</span>
+    </div>
+    <div class="service-card" onclick="goTo('providers.html?service=Gas')">
+      <i class="fa-solid fa-fire service-icon"></i>
+      <span>Gas Service</span>
+    </div>
+    <div class="service-card" onclick="goTo('providers.html?service=AC%20Repair')">
+      <i class="fa-solid fa-snowflake service-icon"></i>
+      <span>AC Repair</span>
+    </div>
+    <div class="service-card" onclick="goTo('providers.html?service=Laptop%20Repair')">
+      <i class="fa-solid fa-laptop service-icon"></i>
+      <span>Laptop Repair</span>
+    </div>
+    <div class="service-card" onclick="goTo('providers.html?service=Carpenter')">
+      <i class="fa-solid fa-hammer service-icon"></i>
+      <span>Carpenter</span>
+    </div>
+    <div class="service-card" onclick="goTo('providers.html?service=Home%20Cleaning')">
+      <i class="fa-solid fa-broom service-icon"></i>
+      <span>Home Cleaning</span>
+    </div>
+    <div class="service-card" onclick="goTo('providers.html?service=Car%20Wash')">
+      <i class="fa-solid fa-car service-icon"></i>
+      <span>Car Wash</span>
+    </div>
+    <div class="service-card" onclick="goTo('providers.html?service=IT%20Support')">
+      <i class="fa-solid fa-computer service-icon"></i>
+      <span>IT Support</span>
+    </div>
+    <div class="service-card" onclick="goTo('providers.html?service=Gardener')">
+      <i class="fa-solid fa-leaf service-icon"></i>
+      <span>Gardener</span>
+    </div>
+    <div class="service-card" onclick="goTo('providers.html?service=Others')">
+      <i class="fa-solid fa-screwdriver-wrench service-icon"></i>
+      <span>Others</span>
+    </div>
+  </section>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <a href="dashboard.html" class="active" title="Home">
+      <i class="fa-solid fa-house nav-icon"></i>Home
+    </a>
+    <a href="inbox.html" title="Inbox">
+      <i class="fa-solid fa-envelope nav-icon"></i>Inbox
+    </a>
+    <a href="myorders.html" title="My Orders">
+      <i class="fa-solid fa-box nav-icon"></i>Orders
+    </a>
+    <a id="profileLink" title="Profile">
+     <i class="fa-solid fa-user nav-icon"></i>Profile
+    </a>
+  </nav>
+
+  <!-- Side Drawer -->
+  <div class="side-drawer" id="sideDrawer" aria-hidden="true">
+    <header>
+      <h3>Profile Menu</h3>
+      <button class="close-btn" aria-label="Close Profile Drawer" id="drawerCloseBtn">&times;</button>
+    </header>
+    <img
+      src="https://i.pravatar.cc/100?img=12"
+      alt="User Profile Picture"
+      class="profile-pic"
+    />
+    <div class="user-name">user</div>
+    <div class="user-email">user@example.com</div>
+    <nav>
+      <a href="profile.html"><i class="fas fa-user"></i> Profile Details</a>
+      <a href="myorders.html"><i class="fas fa-box"></i> My Orders</a>
+      <a href="credit.html"><i class="fas fa-wallet"></i> Credit</a>
+      <a href="saved-location.html"><i class="fas fa-map-marker-alt"></i> Saved Location</a>
+      <a href="service-request.html"><i class="fas fa-concierge-bell"></i> Service Request</a>
+      <a href="offers.html"><i class="fas fa-tags"></i> Offers</a>
+      <a href="settings.html"><i class="fas fa-gear"></i> Settings</a>
+      <a href="help.html"><i class="fas fa-question-circle"></i> Help</a>
+      <br>
+      <a href="login.php" style="border: 2px solid var(--primary-dark)"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </nav>
+  </div>
+
+  <!-- Overlay -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <script>
+    // Navigation function (replace with actual navigation logic)
+    function goTo(url) {
+      window.location.href = url;
+    }
+
+    // Save location form handler
+    function saveLocation(e) {
+      e.preventDefault();
+      const locInput = document.getElementById("loc");
+      const location = locInput.value.trim();
+      if (location) {
+        localStorage.setItem("userLocation", location);
+        alert("Location saved: " + location);
+        locInput.value = "";
+      }
+    }
+
+    // Drawer open/close logic
+    const sideDrawer = document.getElementById("sideDrawer");
+    const drawerOverlay = document.getElementById("drawerOverlay");
+    const drawerCloseBtn = document.getElementById("drawerCloseBtn");
+    const profileAvatar = document.getElementById("profileAvatar");
+    const profileLink = document.getElementById("profileLink");
+
+    function openDrawer() {
+      sideDrawer.classList.add("open");
+      drawerOverlay.classList.add("active");
+      sideDrawer.setAttribute("aria-hidden", "false");
+    }
+    function closeDrawer() {
+      sideDrawer.classList.remove("open");
+      drawerOverlay.classList.remove("active");
+      sideDrawer.setAttribute("aria-hidden", "true");
+    }
+
+    profileAvatar.addEventListener("click", openDrawer);
+    profileLink.addEventListener("click", openDrawer);
+    drawerCloseBtn.addEventListener("click", closeDrawer);
+    drawerOverlay.addEventListener("click", closeDrawer);
+
+    // Optional: Close drawer with Escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && sideDrawer.classList.contains("open")) {
+        closeDrawer();
+      }
+    });
+  </script>
+</body>
+</html>

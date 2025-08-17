@@ -1,0 +1,578 @@
+{
+  "services": [
+    {
+      "name": "Electrician",
+      "providers": [
+        {
+          "id": "elec001",
+          "name": "Molly Clark",
+          "rating": 4.8,
+          "contact": {
+            "phone": "123-456-7890",
+            "email": "molly.clark@example.com"
+          }
+        },
+        {
+          "id": "elec002",
+          "name": "Stark Lee",
+          "rating": 5.0,
+          "contact": {
+            "phone": "098-765-4321",
+            "email": "stark.lee@example.com"
+          }
+        },
+        {
+          "id": "elec003",
+          "name": "Watt Edison",
+          "rating": 4.9,
+          "contact": {
+            "phone": "123-555-7890",
+            "email": "watt.edison@example.com"
+          }
+        },
+        {
+          "id": "elec004",
+          "name": "Volt Franklin",
+          "rating": 4.7,
+          "contact": {
+            "phone": "123-456-9999",
+            "email": "volt.franklin@example.com"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Painter",
+      "providers": [
+        {
+          "id": "paint001",
+          "name": "Alice Green",
+          "rating": 4.5,
+          "contact": {
+            "phone": "555-111-2222",
+            "email": "alice.green@example.com"
+          }
+        },
+        {
+          "id": "paint002",
+          "name": "Robert Canvas",
+          "rating": 4.7,
+          "contact": {
+            "phone": "555-222-3333",
+            "email": "robert.canvas@example.com"
+          }
+        },
+        {
+          "id": "paint003",
+          "name": "Picasso Brush",
+          "rating": 4.8,
+          "contact": {
+            "phone": "555-333-4444",
+            "email": "picasso.brush@example.com"
+          }
+        },
+        {
+          "id": "paint004",
+          "name": "Monet Colors",
+          "rating": 4.9,
+          "contact": {
+            "phone": "555-444-5555",
+            "email": "monet.colors@example.com"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Plumber",
+      "providers": [
+        {
+          "id": "plumb001",
+          "name": "Bob Johnson",
+          "rating": 4.7,
+          "contact": {
+            "phone": "555-333-4444",
+            "email": "bob.johnson@example.com"
+          }
+        },
+        {
+          "id": "plumb002",
+          "name": "Sarah Pipewell",
+          "rating": 4.9,
+          "contact": {
+            "phone": "555-444-5555",
+            "email": "sarah.pipewell@example.com"
+          }
+        },
+        {
+          "id": "plumb003",
+          "name": "Drain Fixer",
+          "rating": 4.6,
+          "contact": {
+            "phone": "555-555-6666",
+            "email": "drain.fixer@example.com"
+          }
+        },
+        {
+          "id": "plumb004",
+          "name": "Pipe Master",
+          "rating": 4.8,
+          "contact": {
+            "phone": "555-666-7777",
+            "email": "pipe.master@example.com"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Mechanic",
+      "providers": [
+        {
+          "id": "mech001",
+          "name": "Charlie Brown",
+          "rating": 4.9,
+          "contact": {
+            "phone": "555-555-6666",
+            "email": "charlie.brown@example.com"
+          }
+        },
+        {
+          "id": "mech002",
+          "name": "Diana Gearson",
+          "rating": 4.8,
+          "contact": {
+            "phone": "555-666-7777",
+            "email": "diana.gearson@example.com"
+          }
+        },
+        {
+          "id": "mech003",
+          "name": "Oil Change Pro",
+          "rating": 4.7,
+          "contact": {
+            "phone": "555-777-8888",
+            "email": "oil.change@example.com"
+          }
+        },
+        {
+          "id": "mech004",
+          "name": "Brake Specialist",
+          "rating": 4.9,
+          "contact": {
+            "phone": "555-888-9999",
+            "email": "brake.special@example.com"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Gas Service",
+      "providers": [
+        {
+          "id": "gas001",
+          "name": "David Miller",
+          "rating": 4.6,
+          "contact": {
+            "phone": "555-777-8888",
+            "email": "david.miller@example.com"
+          }
+        },
+        {
+          "id": "gas002",
+          "name": "Emily Fueler",
+          "rating": 4.7,
+          "contact": {
+            "phone": "555-888-9999",
+            "email": "emily.fueler@example.com"
+          }
+        },
+        {
+          "id": "gas003",
+          "name": "Propane Pete",
+          "rating": 4.8,
+          "contact": {
+            "phone": "555-999-0000",
+            "email": "propane.pete@example.com"
+          }
+        },
+        {
+          "id": "gas004",
+          "name": "Gasline Gary",
+          "rating": 4.5,
+          "contact": {
+            "phone": "555-000-1111",
+            "email": "gasline.gary@example.com"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Others",
+      "providers": [
+        {
+          "id": "other001",
+          "name": "Eve Davis",
+          "rating": 4.2,
+          "contact": {
+            "phone": "555-999-0000",
+            "email": "eve.davis@example.com"
+          }
+        },
+        {
+          "id": "other002",
+          "name": "Oscar Miscellaneous",
+          "rating": 4.4,
+          "contact": {
+            "phone": "555-000-1111",
+            "email": "oscar.misc@example.com"
+          }
+        },
+        {
+          "id": "other003",
+          "name": "Handy Helper",
+          "rating": 4.6,
+          "contact": {
+            "phone": "555-111-2222",
+            "email": "handy.helper@example.com"
+          }
+        },
+        {
+          "id": "other004",
+          "name": "Fix It All",
+          "rating": 4.3,
+          "contact": {
+            "phone": "555-222-3333",
+            "email": "fix.it.all@example.com"
+          }
+        }
+      ]
+    },
+    {
+      "name": "AC Repair",
+      "providers": [
+        {
+          "id": "ac001",
+          "name": "Frank White",
+          "rating": 4.7,
+          "contact": {
+            "phone": "111-222-3333",
+            "email": "frank.white@example.com"
+          }
+        },
+        {
+          "id": "ac002",
+          "name": "Gina Coolair",
+          "rating": 4.9,
+          "contact": {
+            "phone": "111-333-4444",
+            "email": "gina.coolair@example.com"
+          }
+        },
+        {
+          "id": "ac003",
+          "name": "Chill Expert",
+          "rating": 4.8,
+          "contact": {
+            "phone": "111-444-5555",
+            "email": "chill.expert@example.com"
+          }
+        },
+        {
+          "id": "ac004",
+          "name": "Frosty Tech",
+          "rating": 4.6,
+          "contact": {
+            "phone": "111-555-6666",
+            "email": "frosty.tech@example.com"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Laptop Repair",
+      "providers": [
+        {
+          "id": "laptop001",
+          "name": "Grace Lee",
+          "rating": 4.5,
+          "contact": {
+            "phone": "444-555-6666",
+            "email": "grace.lee@example.com"
+          }
+        },
+        {
+          "id": "laptop002",
+          "name": "Harry Circuit",
+          "rating": 4.6,
+          "contact": {
+            "phone": "444-666-7777",
+            "email": "harry.circuit@example.com"
+          }
+        },
+        {
+          "id": "laptop003",
+          "name": "Tech Savvy",
+          "rating": 4.8,
+          "contact": {
+            "phone": "444-777-8888",
+            "email": "tech.savvy@example.com"
+          }
+        },
+        {
+          "id": "laptop004",
+          "name": "Screen Fixer",
+          "rating": 4.7,
+          "contact": {
+            "phone": "444-888-9999",
+            "email": "screen.fixer@example.com"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Carpenter",
+      "providers": [
+        {
+          "id": "carp001",
+          "name": "Henry Wilson",
+          "rating": 4.8,
+          "contact": {
+            "phone": "777-888-9999",
+            "email": "henry.wilson@example.com"
+          }
+        },
+        {
+          "id": "carp002",
+          "name": "Isla Woodcraft",
+          "rating": 4.9,
+          "contact": {
+            "phone": "777-999-0000",
+            "email": "isla.woodcraft@example.com"
+          }
+        },
+        {
+          "id": "carp003",
+          "name": "Saw Master",
+          "rating": 4.7,
+          "contact": {
+            "phone": "777-000-1111",
+            "email": "saw.master@example.com"
+          }
+        },
+        {
+          "id": "carp004",
+          "name": "Nail Hammer",
+          "rating": 4.6,
+          "contact": {
+            "phone": "777-111-2222",
+            "email": "nail.hammer@example.com"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Home Cleaning",
+      "providers": [
+        {
+          "id": "clean001",
+          "name": "Ivy Adams",
+          "rating": 4.9,
+          "contact": {
+            "phone": "000-111-2222",
+            "email": "ivy.adams@example.com"
+          }
+        },
+        {
+          "id": "clean002",
+          "name": "Jack Sparkle",
+          "rating": 4.8,
+          "contact": {
+            "phone": "000-222-3333",
+            "email": "jack.sparkle@example.com"
+          }
+        },
+        {
+          "id": "clean003",
+          "name": "Dust Free",
+          "rating": 4.7,
+          "contact": {
+            "phone": "000-333-4444",
+            "email": "dust.free@example.com"
+          }
+        },
+        {
+          "id": "clean004",
+          "name": "Shine Bright",
+          "rating": 4.9,
+          "contact": {
+            "phone": "000-444-5555",
+            "email": "shine.bright@example.com"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Car Wash",
+      "providers": [
+        {
+          "id": "carwash001",
+          "name": "Jack Taylor",
+          "rating": 4.6,
+          "contact": {
+            "phone": "333-444-5555",
+            "email": "jack.taylor@example.com"
+          }
+        },
+        {
+          "id": "carwash002",
+          "name": "Lily Shine",
+          "rating": 4.7,
+          "contact": {
+            "phone": "333-555-6666",
+            "email": "lily.shine@example.com"
+          }
+        },
+        {
+          "id": "carwash003",
+          "name": "Water Blast",
+          "rating": 4.8,
+          "contact": {
+            "phone": "333-666-7777",
+            "email": "water.blast@example.com"
+          }
+        },
+        {
+          "id": "carwash004",
+          "name": "Foam Master",
+          "rating": 4.5,
+          "contact": {
+            "phone": "333-777-8888",
+            "email": "foam.master@example.com"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IT Support",
+      "providers": [
+        {
+          "id": "it001",
+          "name": "Karen Hall",
+          "rating": 4.7,
+          "contact": {
+            "phone": "666-777-8888",
+            "email": "karen.hall@example.com"
+          }
+        },
+        {
+          "id": "it002",
+          "name": "Mike Byte",
+          "rating": 4.8,
+          "contact": {
+            "phone": "666-888-9999",
+            "email": "mike.byte@example.com"
+          }
+        },
+        {
+          "id": "it003",
+          "name": "Debug Donna",
+          "rating": 4.9,
+          "contact": {
+            "phone": "666-999-0000",
+            "email": "debug.donna@example.com"
+          }
+        },
+        {
+          "id": "it004",
+          "name": "Router Roy",
+          "rating": 4.6,
+          "contact": {
+            "phone": "666-000-1111",
+            "email": "router.roy@example.com"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Gardener",
+      "providers": [
+        {
+          "id": "garden001",
+          "name": "Liam Scott",
+          "rating": 4.5,
+          "contact": {
+            "phone": "999-000-1111",
+            "email": "liam.scott@example.com"
+          }
+        },
+        {
+          "id": "garden002",
+          "name": "Nora Bloom",
+          "rating": 4.7,
+          "contact": {
+            "phone": "999-111-2222",
+            "email": "nora.bloom@example.com"
+          }
+        },
+        {
+          "id": "garden003",
+          "name": "Green Thumb",
+          "rating": 4.8,
+          "contact": {
+            "phone": "999-222-3333",
+            "email": "green.thumb@example.com"
+          }
+        },
+        {
+          "id": "garden004",
+          "name": "Lawn Master",
+          "rating": 4.9,
+          "contact": {
+            "phone": "999-333-4444",
+            "email": "lawn.master@example.com"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cleaning Providers",
+      "providers": [
+        {
+          "id": "cleanpro001",
+          "name": "Sparkle Team",
+          "rating": 4.9,
+          "contact": {
+            "phone": "222-333-4444",
+            "email": "sparkle.team@example.com"
+          }
+        },
+        {
+          "id": "cleanpro002",
+          "name": "Fresh & Clean",
+          "rating": 4.8,
+          "contact": {
+            "phone": "222-444-5555",
+            "email": "fresh.clean@example.com"
+          }
+        },
+        {
+          "id": "cleanpro003",
+          "name": "Spotless Solutions",
+          "rating": 4.7,
+          "contact": {
+            "phone": "222-555-6666",
+            "email": "spotless.sol@example.com"
+          }
+        },
+        {
+          "id": "cleanpro004",
+          "name": "Deep Clean Pros",
+          "rating": 4.9,
+          "contact": {
+            "phone": "222-666-7777",
+            "email": "deep.clean@example.com"
+          }
+        }
+      ]
+    }
+  ]
+}

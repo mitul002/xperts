@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Credit & Wallet – Xperts</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body style="padding-bottom: 80px;">
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <img src="logo.png" alt="XPERTS Logo">
+      XPERTS
+    </div>
+    <img src="https://i.pravatar.cc/100?img=12" alt="Profile" class="avatar">
+  </header>
+
+  <!-- Credit Content -->
+  <div class="container" style="margin-top: 1rem;">
+    <h1 style="text-align: center; color: var(--primary-dark); margin-bottom: 1.5rem;">Credit & Wallet</h1>
+    
+    <!-- Current Balance Card -->
+    <div class="card" style="text-align: center; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white;">
+      <h2 style="margin: 0 0 0.5rem 0;">Current Balance</h2>
+      <h1 style="margin: 0; font-size: 2.5rem;">৳ 150.00</h1>
+      <p style="margin: 0.5rem 0 0 0; opacity: 0.9;">Available for services</p>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="card">
+      <h3 style="margin: 0 0 1rem 0; color: var(--text);">Quick Actions</h3>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        <button class="btn btn-primary" onclick="addMoney()">
+          <i class="fa-solid fa-plus" style="margin-right: 0.5rem;"></i>
+          Add Money
+        </button>
+        <button class="btn" style="background: var(--border); color: var(--text);" onclick="viewHistory()">
+          <i class="fa-solid fa-history" style="margin-right: 0.5rem;"></i>
+          History
+        </button>
+      </div>
+    </div>
+
+    <!-- Recent Transactions -->
+    <div class="card">
+      <h3 style="margin: 0 0 1rem 0; color: var(--text);">Recent Transactions</h3>
+      
+      <div style="border-bottom: 1px solid var(--border); padding: 1rem 0; display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <strong>Service Payment</strong><br>
+          <span style="color: var(--text-medium); font-size: 0.9rem;">Electrical Repair - Molly Clark</span>
+        </div>
+        <span style="color: var(--error); font-weight: bold;">-৳ 75.00</span>
+      </div>
+      
+      <div style="border-bottom: 1px solid var(--border); padding: 1rem 0; display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <strong>Wallet Top-up</strong><br>
+          <span style="color: var(--text-medium); font-size: 0.9rem;">Added via Bkash</span>
+        </div>
+        <span style="color: var(--success); font-weight: bold;">+৳ 200.00</span>
+      </div>
+      
+      <div style="padding: 1rem 0; display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <strong>Service Payment</strong><br>
+          <span style="color: var(--text-medium); font-size: 0.9rem;">Home Cleaning - Ivy Adams</span>
+        </div>
+        <span style="color: var(--error); font-weight: bold;">-৳ 120.00</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <a href="dashboard.html" class="nav-item">
+      <i class="nav-icon fa-solid fa-house"></i>
+      Home
+    </a>
+    <a href="inbox.html" class="nav-item">
+      <i class="nav-icon fa-solid fa-envelope"></i>
+      Inbox
+    </a>
+    <a href="myorders.html" class="nav-item">
+      <i class="nav-icon fa-solid fa-box"></i>
+      Orders
+    </a>
+    <a href="profile.html" class="nav-item active">
+      <i class="nav-icon fa-solid fa-user"></i>
+      Profile
+    </a>
+  </nav>
+
+  <script>
+    function addMoney() {
+      alert('Add money functionality would be implemented later.');
+    }
+    
+    function viewHistory() {
+      alert('Transaction history would be displayed here.');
+    }
+  </script>
+</body>
+</html>
