@@ -4,7 +4,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Payment – Xperts</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .payment-section {
+      margin: 1.5rem 0;
+    }
+
+    .payment-title {
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .payment-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .payment-label {
+      display: flex;
+      align-items: center;
+      padding: 0.8rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .payment-label input[type="radio"] {
+      margin-right: 0.8rem;
+    }
+
+    .submit-btn {
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .back-link-container {
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
   <div class="auth-container">
@@ -13,46 +52,45 @@
     
     <form action="review.html">
       <!-- Payment Methods -->
-      <div style="margin: 1.5rem 0;">
-        <h3 style="margin-bottom: 1rem; color: var(--text);">Select Payment Method:</h3>
-        <div style="display: flex; flex-direction: column; gap: 0.8rem;">
-          <label style="display: flex; align-items: center; padding: 0.8rem; border: 1px solid var(--border); border-radius: 8px; cursor: pointer;">
-            <input type="radio" name="payment" value="credit" required style="margin-right: 0.8rem;">
+      <div class="payment-section">
+        <h3 class="payment-title">Select Payment Method:</h3>
+        <div class="payment-options">
+          <label class="payment-label">
+            <input type="radio" name="payment" value="credit" required>
             <span>💳 Credit Card</span>
           </label>
-          <label style="display: flex; align-items: center; padding: 0.8rem; border: 1px solid var(--border); border-radius: 8px; cursor: pointer;">
-            <input type="radio" name="payment" value="bkash" style="margin-right: 0.8rem;">
+          <label class="payment-label">
+            <input type="radio" name="payment" value="bkash">
             <span>📱 Bkash</span>
           </label>
-          <label style="display: flex; align-items: center; padding: 0.8rem; border: 1px solid var(--border); border-radius: 8px; cursor: pointer;">
-            <input type="radio" name="payment" value="nagad" style="margin-right: 0.8rem;">
+          <label class="payment-label">
+            <input type="radio" name="payment" value="nagad">
             <span>📱 Nagad</span>
           </label>
-          <label style="display: flex; align-items: center; padding: 0.8rem; border: 1px solid var(--border); border-radius: 8px; cursor: pointer;">
-            <input type="radio" name="payment" value="rocket" style="margin-right: 0.8rem;">
+          <label class="payment-label">
+            <input type="radio" name="payment" value="rocket">
             <span>🚀 Rocket</span>
           </label>
-          <label style="display: flex; align-items: center; padding: 0.8rem; border: 1px solid var(--border); border-radius: 8px; cursor: pointer;">
-            <input type="radio" name="payment" value="cash" style="margin-right: 0.8rem;">
+          <label class="payment-label">
+            <input type="radio" name="payment" value="cash">
             <span>💵 Cash on Delivery</span>
           </label>
         </div>
       </div>
 
-      <!-- Account/Card Details -->
+
       <div class="form-group">
         <label for="account">Account / Card Number</label>
         <input type="text" id="account" class="form-control" placeholder="Enter account or card number" required>
       </div>
 
-      <!-- Continue Button -->
-      <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+
+      <button type="submit" class="btn btn-primary submit-btn">
         Continue to Review
       </button>
     </form>
 
-    <!-- Back Link -->
-    <div style="margin-top: 1.5rem; text-align: center;">
+    <div class="back-link-container">
       <a href="providers.html" class="auth-link">← Back to Providers</a>
     </div>
   </div>

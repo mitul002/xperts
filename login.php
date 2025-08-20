@@ -5,8 +5,8 @@ $errors = ['username' => '', 'password' => ''];
 $username = $password = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = trim($_POST['username']);
-    $password = trim($_POST['password']);
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
     $valid = true;
 
@@ -20,27 +20,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $valid = false;
     }
 
+    // Check if the username and password are valid
     if ($valid) {
-        $stmt = $connect->prepare("SELECT password FROM users WHERE username = ?");
-        $stmt->bind_param("s", $username);
-        $stmt->execute();
-        $result = $stmt->get_result();
+  
+        $result = mysqli_query($connect, "SELECT password FROM users WHERE username = '$username'");
+        
 
-        if ($result->num_rows > 0) {
-            $user = $result->fetch_assoc();
-            if (password_verify($password, $user['password'])) {
-                header("Location: dashboard.html");
-                exit;
+if ($result) {
+    $user = mysqli_fetch_assoc($result);
+    if ($user && password_verify($password, $user['password'])) {
+        header("Location: dashboard.html");
+        exit;
             } else {
                 $errors['password'] = "Invalid username or password.";
             }
         } else {
             $errors['password'] = "Invalid username or password.";
         }
-        $stmt->close();
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -95,7 +95,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       text-align: left;
     }
     .form-group label {
-      display: block;
       font-size: 0.9rem;
       margin-bottom: 0.5rem;
       font-weight: 600;
@@ -154,14 +153,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <form method="POST" novalidate>
       <div class="form-group">
         <label for="username">Username</label>
-        <input type="text" id="username" name="username" class="form-control" value="<?= htmlspecialchars($username) ?>">
+        <input type="text" id="username" name="username" class="form-control" value="<?= $username ?>">
         <?php if (!empty($errors['username'])): ?>
           <div class="error-message"><?= $errors['username'] ?></div>
         <?php endif; ?>
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" class="form-control">
+        <input type="password" id="password" name="password" class="form-control" >
         <?php if (!empty($errors['password'])): ?>
           <div class="error-message"><?= $errors['password'] ?></div>
         <?php endif; ?>

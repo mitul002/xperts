@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Service Providers – XPERTS</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body style="padding-bottom: 80px;">
   <!-- Header -->
@@ -47,60 +47,61 @@
     </a>
   </nav>
 
-  <script>
-    // Load providers when page loads
-    document.addEventListener('DOMContentLoaded', function() {
-      const urlParams = new URLSearchParams(window.location.search);
-      const serviceName = urlParams.get('service');
-      const serviceTitle = document.getElementById('serviceTitle');
-      const container = document.getElementById('providersContainer');
+<script>
+  // Run this function after the page has fully loaded
+  document.addEventListener('DOMContentLoaded', function () {
+    // Get the 'service' parameter from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const serviceName = urlParams.get('service');
 
-      if (serviceName) {
-        serviceTitle.textContent = serviceName + ' Providers';
-        loadProviders(serviceName, container);
-      }
-    });
+    // Get the container where providers will be shown
+    const container = document.getElementById('providersContainer');
 
-    // Function to load providers from services.json
-    function loadProviders(serviceName, container) {
-      fetch('services.json')
-        .then(response => response.json())
-        .then(data => {
-          const service = data.services.find(s => s.name === serviceName);
+    // If a service name exists in the URL, load its providers
+    if (serviceName) {
+      loadProviders(serviceName, container);
+    }
+  });
+
+  // Fetch and display providers from JSON
+  function loadProviders(serviceName, container) {
+    fetch('services.json')
+      .then(response => response.json()) // Parse the JSON file
+      .then(data => {
+        // Find the service that matches the service name
+        const service = data.services.find(s => s.name === serviceName);
+
+        if (service && service.providers.length > 0) {
           
-          if (service && service.providers.length > 0) {
-            container.innerHTML = service.providers.map(provider => `
-              <div class="provider-card">
-                <div class="provider-info">
-                  <strong>${provider.name}</strong><br>
-                  <span style="color: var(--text-medium);">${serviceName}</span><br>
-                  <span style="color: var(--warning);">Rating: ${provider.rating} ⭐</span>
-                </div>
-                <div class="provider-actions">
-                  <a href="inbox.html" class="btn btn-primary" style="text-decoration: none; font-size: 0.9rem; padding: 0.5rem 1rem;">Chat</a>
-                  <a href="payment.html" class="btn btn-primary" style="text-decoration: none; font-size: 0.9rem; padding: 0.5rem 1rem; margin-left: 0.5rem;">Order</a>
-                </div>
+          container.innerHTML = service.providers.map(provider => `
+            <div class="provider-card">
+              <div class="provider-info">
+                <strong>${provider.name}</strong><br>
+                <span style="color: var(--text-medium);">${serviceName}</span><br>
+                <span style="color: var(--warning);">Rating: ${provider.rating} ⭐</span>
               </div>
-            `).join('');
-          } else {
-            container.innerHTML = `
-              <div class="card" style="text-align: center; padding: 2rem;">
-                <p>No providers found for ${serviceName}.</p>
-                <a href="dashboard.html" class="btn btn-primary" style="text-decoration: none; margin-top: 1rem;">Back to Home</a>
+              <div class="provider-actions">
+                <a href="inbox.html" class="btn btn-primary"
+                   style="text-decoration: none; font-size: 0.9rem; padding: 0.5rem 1rem;">Chat</a>
+                <a href="payment.html" class="btn btn-primary"
+                   style="text-decoration: none; font-size: 0.9rem; padding: 0.5rem 1rem; margin-left: 0.5rem;">Order</a>
               </div>
-            `;
-          }
-        })
-        .catch(error => {
-          console.error('Error loading providers:', error);
+            </div>
+          `).join('');
+        } 
+        
+        else {
+          
           container.innerHTML = `
             <div class="card" style="text-align: center; padding: 2rem;">
-              <p>Error loading providers. Please try again.</p>
-              <a href="dashboard.html" class="btn btn-primary" style="text-decoration: none; margin-top: 1rem;">Back to Home</a>
+              <p>No providers found for ${serviceName}.</p>
+              <a href="dashboard.html" class="btn btn-primary"
+                 style="text-decoration: none; margin-top: 1rem;">Back to Home</a>
             </div>
           `;
-        });
-    }
-  </script>
+        }
+      });
+  }
+</script>
 </body>
 </html>

@@ -4,7 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Leave Review – Xperts</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/styles.css">
+ <style>
+    .rating-container {
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+
+    .rating-title {
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .stars {
+      font-size: 2rem;
+      color: var(--warning);
+    }
+
+    .rating-text {
+      font-size: 0.9rem;
+      color: var(--text-medium);
+      margin-top: 0.5rem;
+    }
+
+    .submit-btn {
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .back-link-container {
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
   <div class="auth-container">
@@ -13,12 +45,10 @@
     
     <form action="dashboard.html" method="POST">
       <!-- Star Rating -->
-      <div style="margin: 1.5rem 0; text-align: center;">
-        <h3 style="margin-bottom: 1rem; color: var(--text);">Rate your experience:</h3>
-        <div style="font-size: 2rem; color: var(--warning);">
-          ⭐⭐⭐⭐⭐
-        </div>
-        <p style="font-size: 0.9rem; color: var(--text-medium); margin-top: 0.5rem;">Excellent</p>
+      <div class="rating-container">
+        <h3 class="rating-title">Rate your experience:</h3>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p class="rating-text">Excellent</p>
       </div>
 
       <!-- Review Text -->
@@ -28,15 +58,21 @@
       </div>
 
       <!-- Submit Button -->
-      <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+      <button type="submit" class="btn btn-primary submit-btn">
         Submit Review
       </button>
     </form>
 
     <!-- Back Link -->
-    <div style="margin-top: 1.5rem; text-align: center;">
+    <div class="back-link-container">
       <a href="dashboard.html" class="auth-link">← Back to Home</a>
     </div>
   </div>
 </body>
 </html>
+<script>
+  document.querySelector('form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    window.location.href = 'dashboard.html';
+  });
+</script>

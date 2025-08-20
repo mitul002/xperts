@@ -5,38 +5,38 @@
       "providers": [
         {
           "id": "elec001",
-          "name": "Molly Clark",
+          "name": "Shajahan Ali",
           "rating": 4.8,
           "contact": {
-            "phone": "123-456-7890",
-            "email": "molly.clark@example.com"
+            "phone": "+8801712 345678",
+            "email": "shajahan.electrician@gmail.com"
           }
         },
         {
           "id": "elec002",
-          "name": "Stark Lee",
+          "name": "Rashedul Islam",
           "rating": 5.0,
           "contact": {
-            "phone": "098-765-4321",
-            "email": "stark.lee@example.com"
+            "phone": "+8801817 234567",
+            "email": "rashedul.electrician@gmail.com"
           }
         },
         {
           "id": "elec003",
-          "name": "Watt Edison",
+          "name": "Anisur Rahman",
           "rating": 4.9,
           "contact": {
-            "phone": "123-555-7890",
-            "email": "watt.edison@example.com"
+            "phone": "+8801911 876543",
+            "email": "anisur.electrician@gmail.com"
           }
         },
         {
           "id": "elec004",
-          "name": "Volt Franklin",
+          "name": "Abul Kalam",
           "rating": 4.7,
           "contact": {
-            "phone": "123-456-9999",
-            "email": "volt.franklin@example.com"
+            "phone": "+8801515 123456",
+            "email": "abul.electrician@gmail.com"
           }
         }
       ]
@@ -46,38 +46,38 @@
       "providers": [
         {
           "id": "paint001",
-          "name": "Alice Green",
+          "name": "Faysal Ahmed",
           "rating": 4.5,
           "contact": {
-            "phone": "555-111-2222",
-            "email": "alice.green@example.com"
+            "phone": "+8801719 234567",
+            "email": "faysal.painter@gmail.com"
           }
         },
         {
           "id": "paint002",
-          "name": "Robert Canvas",
+          "name": "Asif Iqbal",
           "rating": 4.7,
           "contact": {
-            "phone": "555-222-3333",
-            "email": "robert.canvas@example.com"
+            "phone": "+8801816 345678",
+            "email": "asif.painter@gmail.com"
           }
         },
         {
           "id": "paint003",
-          "name": "Picasso Brush",
+          "name": "Hasanuzzaman",
           "rating": 4.8,
           "contact": {
-            "phone": "555-333-4444",
-            "email": "picasso.brush@example.com"
+            "phone": "+8801917 456789",
+            "email": "hasanuzzaman.painter@gmail.com"
           }
         },
         {
           "id": "paint004",
-          "name": "Monet Colors",
+          "name": "Imtiaz Hossain",
           "rating": 4.9,
           "contact": {
-            "phone": "555-444-5555",
-            "email": "monet.colors@example.com"
+            "phone": "+8801518 567890",
+            "email": "imtiaz.painter@gmail.com"
           }
         }
       ]
@@ -87,38 +87,38 @@
       "providers": [
         {
           "id": "plumb001",
-          "name": "Bob Johnson",
+          "name": "Moshiur Rahman",
           "rating": 4.7,
           "contact": {
-            "phone": "555-333-4444",
-            "email": "bob.johnson@example.com"
+            "phone": "+8801716 678901",
+            "email": "moshiur.plumber@gmail.com"
           }
         },
         {
           "id": "plumb002",
-          "name": "Sarah Pipewell",
+          "name": "Tamanna Islam",
           "rating": 4.9,
           "contact": {
-            "phone": "555-444-5555",
-            "email": "sarah.pipewell@example.com"
+            "phone": "+8801815 789012",
+            "email": "tamanna.plumber@gmail.com"
           }
         },
         {
           "id": "plumb003",
-          "name": "Drain Fixer",
+          "name": "Abdul Hamid",
           "rating": 4.6,
           "contact": {
-            "phone": "555-555-6666",
-            "email": "drain.fixer@example.com"
+            "phone": "+8801918 890123",
+            "email": "abdul.plumber@gmail.com"
           }
         },
         {
           "id": "plumb004",
-          "name": "Pipe Master",
+          "name": "Aminul Haque",
           "rating": 4.8,
           "contact": {
-            "phone": "555-666-7777",
-            "email": "pipe.master@example.com"
+            "phone": "+8801517 901234",
+            "email": "aminul.plumber@gmail.com"
           }
         }
       ]
@@ -128,38 +128,38 @@
       "providers": [
         {
           "id": "mech001",
-          "name": "Charlie Brown",
+          "name": "Jamal Uddin",
           "rating": 4.9,
           "contact": {
-            "phone": "555-555-6666",
-            "email": "charlie.brown@example.com"
+            "phone": "+8801713 012345",
+            "email": "jamal.mechanic@gmail.com"
           }
         },
         {
           "id": "mech002",
-          "name": "Diana Gearson",
+          "name": "Sumaiya Akter",
           "rating": 4.8,
           "contact": {
-            "phone": "555-666-7777",
-            "email": "diana.gearson@example.com"
+            "phone": "+8801819 123456",
+            "email": "sumaiya.mechanic@gmail.com"
           }
         },
         {
           "id": "mech003",
-          "name": "Oil Change Pro",
+          "name": "Kamal Hossain",
           "rating": 4.7,
           "contact": {
-            "phone": "555-777-8888",
-            "email": "oil.change@example.com"
+            "phone": "+8801913 234567",
+            "email": "kamal.mechanic@gmail.com"
           }
         },
         {
           "id": "mech004",
-          "name": "Brake Specialist",
+          "name": "Nasir Uddin",
           "rating": 4.9,
           "contact": {
-            "phone": "555-888-9999",
-            "email": "brake.special@example.com"
+            "phone": "+8801519 345678",
+            "email": "nasir.mechanic@gmail.com"
           }
         }
       ]
@@ -169,38 +169,38 @@
       "providers": [
         {
           "id": "gas001",
-          "name": "David Miller",
+          "name": "Farhad Hossain",
           "rating": 4.6,
           "contact": {
-            "phone": "555-777-8888",
-            "email": "david.miller@example.com"
+            "phone": "+8801714 456789",
+            "email": "farhad.gas_service@gmail.com"
           }
         },
         {
           "id": "gas002",
-          "name": "Emily Fueler",
+          "name": "Jannatul Ferdous",
           "rating": 4.7,
           "contact": {
-            "phone": "555-888-9999",
-            "email": "emily.fueler@example.com"
+            "phone": "+8801814 567890",
+            "email": "jannatul.gas_service@gmail.com"
           }
         },
         {
           "id": "gas003",
-          "name": "Propane Pete",
+          "name": "Rafiqul Islam",
           "rating": 4.8,
           "contact": {
-            "phone": "555-999-0000",
-            "email": "propane.pete@example.com"
+            "phone": "+8801919 678901",
+            "email": "rafiqul.gas_service@gmail.com"
           }
         },
         {
           "id": "gas004",
-          "name": "Gasline Gary",
+          "name": "Mizanur Rahman",
           "rating": 4.5,
           "contact": {
-            "phone": "555-000-1111",
-            "email": "gasline.gary@example.com"
+            "phone": "+8801516 789012",
+            "email": "mizanur.gas_service@gmail.com"
           }
         }
       ]
@@ -210,38 +210,38 @@
       "providers": [
         {
           "id": "other001",
-          "name": "Eve Davis",
+          "name": "Tania Akter",
           "rating": 4.2,
           "contact": {
-            "phone": "555-999-0000",
-            "email": "eve.davis@example.com"
+            "phone": "+8801715 890123",
+            "email": "tania.others@gmail.com"
           }
         },
         {
           "id": "other002",
-          "name": "Oscar Miscellaneous",
+          "name": "Shofiqul Islam",
           "rating": 4.4,
           "contact": {
-            "phone": "555-000-1111",
-            "email": "oscar.misc@example.com"
+            "phone": "+8801813 901234",
+            "email": "shofiqul.others@gmail.com"
           }
         },
         {
           "id": "other003",
-          "name": "Handy Helper",
+          "name": "Mehedi Hasan",
           "rating": 4.6,
           "contact": {
-            "phone": "555-111-2222",
-            "email": "handy.helper@example.com"
+            "phone": "+8801914 012345",
+            "email": "mehedi.others@gmail.com"
           }
         },
         {
           "id": "other004",
-          "name": "Fix It All",
+          "name": "Saifullah Khan",
           "rating": 4.3,
           "contact": {
-            "phone": "555-222-3333",
-            "email": "fix.it.all@example.com"
+            "phone": "+8801518 123456",
+            "email": "saifullah.others@gmail.com"
           }
         }
       ]
@@ -251,38 +251,38 @@
       "providers": [
         {
           "id": "ac001",
-          "name": "Frank White",
+          "name": "Ashraful Haque",
           "rating": 4.7,
           "contact": {
-            "phone": "111-222-3333",
-            "email": "frank.white@example.com"
+            "phone": "+8801717 234567",
+            "email": "ashraful.ac_repair@gmail.com"
           }
         },
         {
           "id": "ac002",
-          "name": "Gina Coolair",
+          "name": "Rehana Begum",
           "rating": 4.9,
           "contact": {
-            "phone": "111-333-4444",
-            "email": "gina.coolair@example.com"
+            "phone": "+8801812 345678",
+            "email": "rehana.ac_repair@gmail.com"
           }
         },
         {
           "id": "ac003",
-          "name": "Chill Expert",
+          "name": "Sajjad Khan",
           "rating": 4.8,
           "contact": {
-            "phone": "111-444-5555",
-            "email": "chill.expert@example.com"
+            "phone": "+8801915 456789",
+            "email": "sajjad.ac_repair@gmail.com"
           }
         },
         {
           "id": "ac004",
-          "name": "Frosty Tech",
+          "name": "Shafiqul Azam",
           "rating": 4.6,
           "contact": {
-            "phone": "111-555-6666",
-            "email": "frosty.tech@example.com"
+            "phone": "+8801519 567890",
+            "email": "shafiqul.ac_repair@gmail.com"
           }
         }
       ]
@@ -292,38 +292,38 @@
       "providers": [
         {
           "id": "laptop001",
-          "name": "Grace Lee",
+          "name": "Samira Akter",
           "rating": 4.5,
           "contact": {
-            "phone": "444-555-6666",
-            "email": "grace.lee@example.com"
+            "phone": "+8801718 678901",
+            "email": "samira.laptop_repair@gmail.com"
           }
         },
         {
           "id": "laptop002",
-          "name": "Harry Circuit",
+          "name": "Taufiqul Islam",
           "rating": 4.6,
           "contact": {
-            "phone": "444-666-7777",
-            "email": "harry.circuit@example.com"
+            "phone": "+8801811 789012",
+            "email": "taufiqul.laptop_repair@gmail.com"
           }
         },
         {
           "id": "laptop003",
-          "name": "Tech Savvy",
+          "name": "Faisal Khan",
           "rating": 4.8,
           "contact": {
-            "phone": "444-777-8888",
-            "email": "tech.savvy@example.com"
+            "phone": "+8801916 890123",
+            "email": "faisal.laptop_repair@gmail.com"
           }
         },
         {
           "id": "laptop004",
-          "name": "Screen Fixer",
+          "name": "Hasan Mahmud",
           "rating": 4.7,
           "contact": {
-            "phone": "444-888-9999",
-            "email": "screen.fixer@example.com"
+            "phone": "+8801517 901234",
+            "email": "hasan.laptop_repair@gmail.com"
           }
         }
       ]
@@ -333,38 +333,38 @@
       "providers": [
         {
           "id": "carp001",
-          "name": "Henry Wilson",
+          "name": "Mahbubur Rahman",
           "rating": 4.8,
           "contact": {
-            "phone": "777-888-9999",
-            "email": "henry.wilson@example.com"
+            "phone": "+8801710 012345",
+            "email": "mahbubur.carpenter@gmail.com"
           }
         },
         {
           "id": "carp002",
-          "name": "Isla Woodcraft",
+          "name": "Rokeya Akter",
           "rating": 4.9,
           "contact": {
-            "phone": "777-999-0000",
-            "email": "isla.woodcraft@example.com"
+            "phone": "+8801810 123456",
+            "email": "rokeya.carpenter@gmail.com"
           }
         },
         {
           "id": "carp003",
-          "name": "Saw Master",
+          "name": "Asaduzzaman Khan",
           "rating": 4.7,
           "contact": {
-            "phone": "777-000-1111",
-            "email": "saw.master@example.com"
+            "phone": "+8801910 234567",
+            "email": "asaduzzaman.carpenter@gmail.com"
           }
         },
         {
           "id": "carp004",
-          "name": "Nail Hammer",
+          "name": "Arifuzzaman",
           "rating": 4.6,
           "contact": {
-            "phone": "777-111-2222",
-            "email": "nail.hammer@example.com"
+            "phone": "+8801516 345678",
+            "email": "arifuzzaman.carpenter@gmail.com"
           }
         }
       ]
@@ -374,38 +374,38 @@
       "providers": [
         {
           "id": "clean001",
-          "name": "Ivy Adams",
+          "name": "Nahida Begum",
           "rating": 4.9,
           "contact": {
-            "phone": "000-111-2222",
-            "email": "ivy.adams@example.com"
+            "phone": "+8801711 456789",
+            "email": "nahida.home_cleaning@gmail.com"
           }
         },
         {
           "id": "clean002",
-          "name": "Jack Sparkle",
+          "name": "Monirul Islam",
           "rating": 4.8,
           "contact": {
-            "phone": "000-222-3333",
-            "email": "jack.sparkle@example.com"
+            "phone": "+8801813 567890",
+            "email": "monirul.home_cleaning@gmail.com"
           }
         },
         {
           "id": "clean003",
-          "name": "Dust Free",
+          "name": "Faruk Ahmed",
           "rating": 4.7,
           "contact": {
-            "phone": "000-333-4444",
-            "email": "dust.free@example.com"
+            "phone": "+8801912 678901",
+            "email": "faruk.home_cleaning@gmail.com"
           }
         },
         {
           "id": "clean004",
-          "name": "Shine Bright",
+          "name": "Anika Tabassum",
           "rating": 4.9,
           "contact": {
-            "phone": "000-444-5555",
-            "email": "shine.bright@example.com"
+            "phone": "+8801518 789012",
+            "email": "anika.home_cleaning@gmail.com"
           }
         }
       ]
@@ -415,38 +415,38 @@
       "providers": [
         {
           "id": "carwash001",
-          "name": "Jack Taylor",
+          "name": "Omar Faruk",
           "rating": 4.6,
           "contact": {
-            "phone": "333-444-5555",
-            "email": "jack.taylor@example.com"
+            "phone": "+8801719 890123",
+            "email": "omar.car_wash@gmail.com"
           }
         },
         {
           "id": "carwash002",
-          "name": "Lily Shine",
+          "name": "Tasnim Islam",
           "rating": 4.7,
           "contact": {
-            "phone": "333-555-6666",
-            "email": "lily.shine@example.com"
+            "phone": "+8801812 901234",
+            "email": "tasnim.car_wash@gmail.com"
           }
         },
         {
           "id": "carwash003",
-          "name": "Water Blast",
+          "name": "Abir Hossain",
           "rating": 4.8,
           "contact": {
-            "phone": "333-666-7777",
-            "email": "water.blast@example.com"
+            "phone": "+8801913 012345",
+            "email": "abir.car_wash@gmail.com"
           }
         },
         {
           "id": "carwash004",
-          "name": "Foam Master",
+          "name": "Firoz Uddin",
           "rating": 4.5,
           "contact": {
-            "phone": "333-777-8888",
-            "email": "foam.master@example.com"
+            "phone": "+8801516 123456",
+            "email": "firoz.car_wash@gmail.com"
           }
         }
       ]
@@ -456,38 +456,38 @@
       "providers": [
         {
           "id": "it001",
-          "name": "Karen Hall",
+          "name": "Zubaida Khanam",
           "rating": 4.7,
           "contact": {
-            "phone": "666-777-8888",
-            "email": "karen.hall@example.com"
+            "phone": "+8801710 234567",
+            "email": "zubaida.it_support@gmail.com"
           }
         },
         {
           "id": "it002",
-          "name": "Mike Byte",
+          "name": "Rezwan Ahmed",
           "rating": 4.8,
           "contact": {
-            "phone": "666-888-9999",
-            "email": "mike.byte@example.com"
+            "phone": "+8801811 345678",
+            "email": "rezwan.it_support@gmail.com"
           }
         },
         {
           "id": "it003",
-          "name": "Debug Donna",
+          "name": "Sumon Mia",
           "rating": 4.9,
           "contact": {
-            "phone": "666-999-0000",
-            "email": "debug.donna@example.com"
+            "phone": "+8801912 456789",
+            "email": "sumon.it_support@gmail.com"
           }
         },
         {
           "id": "it004",
-          "name": "Router Roy",
+          "name": "Saiful Islam",
           "rating": 4.6,
           "contact": {
-            "phone": "666-000-1111",
-            "email": "router.roy@example.com"
+            "phone": "+8801516 567890",
+            "email": "saiful.it_support@gmail.com"
           }
         }
       ]
@@ -497,38 +497,38 @@
       "providers": [
         {
           "id": "garden001",
-          "name": "Liam Scott",
+          "name": "Emdadul Haque",
           "rating": 4.5,
           "contact": {
-            "phone": "999-000-1111",
-            "email": "liam.scott@example.com"
+            "phone": "+8801713 678901",
+            "email": "emdadul.gardener@gmail.com"
           }
         },
         {
           "id": "garden002",
-          "name": "Nora Bloom",
+          "name": "Sabina Yasmin",
           "rating": 4.7,
           "contact": {
-            "phone": "999-111-2222",
-            "email": "nora.bloom@example.com"
+            "phone": "+8801814 789012",
+            "email": "sabina.gardener@gmail.com"
           }
         },
         {
           "id": "garden003",
-          "name": "Green Thumb",
+          "name": "Jahid Hossain",
           "rating": 4.8,
           "contact": {
-            "phone": "999-222-3333",
-            "email": "green.thumb@example.com"
+            "phone": "+8801915 890123",
+            "email": "jahid.gardener@gmail.com"
           }
         },
         {
           "id": "garden004",
-          "name": "Lawn Master",
+          "name": "Rubel Mahmud",
           "rating": 4.9,
           "contact": {
-            "phone": "999-333-4444",
-            "email": "lawn.master@example.com"
+            "phone": "+8801517 901234",
+            "email": "rubel.gardener@gmail.com"
           }
         }
       ]
@@ -538,38 +538,38 @@
       "providers": [
         {
           "id": "cleanpro001",
-          "name": "Sparkle Team",
+          "name": "Saimun Hasan",
           "rating": 4.9,
           "contact": {
-            "phone": "222-333-4444",
-            "email": "sparkle.team@example.com"
+            "phone": "+8801716 012345",
+            "email": "saimun.cleaning_providers@gmail.com"
           }
         },
         {
           "id": "cleanpro002",
-          "name": "Fresh & Clean",
+          "name": "Parvez Hossain",
           "rating": 4.8,
           "contact": {
-            "phone": "222-444-5555",
-            "email": "fresh.clean@example.com"
+            "phone": "+8801817 123456",
+            "email": "parvez.cleaning_providers@gmail.com"
           }
         },
         {
           "id": "cleanpro003",
-          "name": "Spotless Solutions",
+          "name": "Badrul Alam",
           "rating": 4.7,
           "contact": {
-            "phone": "222-555-6666",
-            "email": "spotless.sol@example.com"
+            "phone": "+8801918 234567",
+            "email": "badrul.cleaning_providers@gmail.com"
           }
         },
         {
           "id": "cleanpro004",
-          "name": "Deep Clean Pros",
+          "name": "Shanta Akter",
           "rating": 4.9,
           "contact": {
-            "phone": "222-666-7777",
-            "email": "deep.clean@example.com"
+            "phone": "+8801519 345678",
+            "email": "shanta.cleaning_providers@gmail.com"
           }
         }
       ]

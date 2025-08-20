@@ -1,0 +1,285 @@
+  :root {
+      --primary: #ff9800;
+      --primary-dark: #e68a00;
+      --bg: #f0f2f5;
+      --nav-glass: rgba(255, 255, 255, 0.7);
+      --nav-glass-blur: 12px;
+    }
+
+    /* --- Global --- */
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    
+
+    /* --- Header --- */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,.05);
+      position: relative;
+      z-index: 2;
+    }
+    .page-header h1 {
+      margin: 0;
+      color: var(--primary);
+      font-size: 1.4rem;
+      letter-spacing: .3px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+    }
+    .page-header h1 img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
+    .avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 0 2px var(--primary);
+      cursor: pointer;
+    }
+
+    /* --- Search Bar --- */
+    .search-wrapper {
+      padding: 1.2rem 2rem 0;
+    }
+    .search-bar {
+      width: 100%;
+      display: flex;
+      gap: .6rem;
+    }
+    .search-bar input {
+      flex: 1;  /* Allow the message content to grow and fill the available space */
+      padding: .9rem 1.1rem;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+    .search-bar button {
+      padding: .9rem 1.2rem;
+      border: none;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .search-bar button:hover {
+      background: var(--primary-dark);
+    }
+
+    /* --- Grids --- */
+    .grid-title {
+      font-weight: 600;
+      margin: 2.5rem 2rem 1rem;
+      color: #555;
+    }
+    .service-grid,
+    .freq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1.2rem;
+      padding: 0 2rem;
+      
+    }
+    .service-card,
+    .freq-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.07);
+      padding: 1.8rem .7rem;
+      text-align: center;
+      cursor: pointer;
+      transition: transform .3s, box-shadow .3s, background-color .3s, color .3s;
+      aspect-ratio: 1/1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .service-card:hover,
+    .freq-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 26px rgba(0,0,0,.12);
+      background-color: var(--primary);
+      color: #fff;
+    }
+    .service-icon, .freq-icon {
+      font-size: 38px;
+      color: var(--primary);
+      margin-bottom: .55rem;
+      transition: color .3s;
+    }
+    .service-card:hover .service-icon,
+    .freq-card:hover .freq-icon {
+      color: #fff;
+    }
+    .service-card span,
+    .freq-card span {
+      font-weight: 600;
+      font-size: .95rem;
+    }
+
+    /* --- Bottom Nav --- */
+    .bottom-nav {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: .8rem 0;
+      backdrop-filter: blur(var(--nav-glass-blur));
+      background: var(--nav-glass);
+      position: sticky;
+      bottom: 0;
+      width: 100%;
+      box-shadow: 0 -2px 12px rgba(0,0,0,.08);
+      z-index: 2;
+    }
+
+    .bottom-nav a {
+      color: #666;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: .75rem;
+      transition: color .3s;
+      cursor: pointer;
+    }
+
+    .bottom-nav a .nav-icon {
+      font-size: 22px;
+      margin-bottom: .15rem;
+    }
+
+    .bottom-nav a:hover,
+    .bottom-nav a.active {
+      color: var(--primary);
+    }
+
+    /* --- Side Drawer --- */
+    .side-drawer {
+      position: fixed;
+      top: 0;
+      right: -320px; /* hidden offscreen */
+      width: 320px;
+      height: 100vh;
+      background: #fff;
+      box-shadow: -4px 0 16px rgba(0,0,0,0.15);
+      padding: 1.5rem 2rem;
+      box-sizing: border-box;
+      transition: right 0.3s ease;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+    }
+    .side-drawer.open {
+      right: 0;
+    }
+    .side-drawer header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    .side-drawer header h3 {
+      margin: 0;
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.2rem;
+    }
+    .side-drawer header button.close-btn {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #888;
+      transition: color 0.3s;
+    }
+    .side-drawer header button.close-btn:hover {
+      color: var(--primary);
+    }
+    .side-drawer .profile-pic {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin: 0 auto 1rem auto;
+      box-shadow: 0 0 0 3px var(--primary);
+    }
+    .side-drawer .user-name {
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin-bottom: 0.2rem;
+    }
+    .side-drawer .user-email {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+    
+    .side-drawer nav a {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      color: var(--primary-dark);
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px solid #eee;
+      transition: 
+        background-color 0.3s ease,
+        color 0.3s ease,
+        padding-left 0.3s ease;
+      border-radius: 8px;
+    }
+
+    .side-drawer nav a i {
+      color: var(--primary-dark);
+      transition: color 0.3s ease;
+      min-width: 20px;
+      text-align: center;
+    }
+
+    .side-drawer nav a:hover {
+      color: #fff;
+      background-color: var(--primary);
+      padding-left: 1.5rem; /* subtle indent on hover */
+    }
+
+    .side-drawer nav a:hover i {
+      color: #fff;
+    }
+
+    /* Overlay for drawer */
+    .drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.3);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 9998;
+    }
+    .drawer-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }

@@ -1,14 +1,13 @@
 <?php
 include 'db.php';
 
-$errors = ['username' => '', 'email' => '', 'password' => '', 'terms' => ''];
+$errors = ['username' => '', 'email' => '', 'password' => ''];
 $username = $email = $password = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = trim($_POST['username']);
-    $email = trim($_POST['email']);
-    $password = trim($_POST['password']);
-    $terms = isset($_POST['terms']);
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
     $valid = true;
 
@@ -27,30 +26,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $valid = false;
     }
 
-    if (!$terms) {
-        $errors['terms'] = "You must agree to the terms.";
-        $valid = false;
-    }
-
     if ($valid) {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-        $stmt = $connect->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $username, $email, $hashed_password);
-        
-        if ($stmt->execute()) {
+
+        $sql = "INSERT INTO users (username, email, password) 
+                VALUES ('$username', '$email', '$hashed_password')";
+
+        if ($connect->query($sql) === TRUE) {
             header("Location: login.php");
             exit;
         } else {
-            if ($connect->errno === 1062) { // Duplicate entry
-                $errors['username'] = "Username or email already exists.";
-            } else {
-                $errors['username'] = "An error occurred. Please try again.";
-            }
+            $errors['username'] = "Something went wrong. Try again.";
         }
-        $stmt->close();
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -105,7 +96,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       text-align: left;
     }
     .form-group label {
-      display: block;
       font-size: 0.9rem;
       margin-bottom: 0.5rem;
       font-weight: 600;
@@ -176,14 +166,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <form method="POST" novalidate>
       <div class="form-group">
         <label for="username">Username</label>
-        <input type="text" id="username" name="username" class="form-control" value="<?= htmlspecialchars($username) ?>">
+        <input type="text" id="username" name="username" class="form-control" value="<?= $username ?>">
         <?php if (!empty($errors['username'])): ?>
           <div class="error-message"><?= $errors['username'] ?></div>
         <?php endif; ?>
       </div>
       <div class="form-group">
         <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" class="form-control" value="<?= htmlspecialchars($email) ?>">
+        <input type="email" id="email" name="email" class="form-control" value="<?= $email ?>">
         <?php if (!empty($errors['email'])): ?>
           <div class="error-message"><?= $errors['email'] ?></div>
         <?php endif; ?>
@@ -195,13 +185,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <div class="error-message"><?= $errors['password'] ?></div>
         <?php endif; ?>
       </div>
+
       <div class="checkbox-group">
         <input type="checkbox" id="terms" name="terms">
         <label for="terms">I agree to the <a href="#">Terms & Conditions</a></label>
       </div>
-      <?php if (!empty($errors['terms'])): ?>
-        <div class="error-message"><?= $errors['terms'] ?></div>
-      <?php endif; ?>
+
       <button type="submit" class="btn-submit">Sign Up</button>
     </form>
     <div class="bottom-link">

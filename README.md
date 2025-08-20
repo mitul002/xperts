@@ -1,15 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
 # XPERTS - Home Services Platform
 
 A simple and clean web application for booking home services like electrical repair, plumbing, cleaning, and more.
@@ -18,23 +6,26 @@ A simple and clean web application for booking home services like electrical rep
 
 ```
 xperts/
-├── index.html          # Landing page (redirects to login)
-├── login.php           # User login page
-├── signup.php          # User registration page
-├── dashboard.html      # Main dashboard with services
-├── providers.html      # Service providers list
-├── payment.html        # Payment method selection
-├── review.html         # Leave review page
-├── profile.html        # User profile page
-├── myorders.html       # Order history
-├── inbox.html          # Messages/Chat
-├── credit.html         # Wallet & Credits
-├── forget-password.html # Password reset
-├── db.php              # Database connection
-├── services.json       # Service providers data
-├── styles.css          # Main stylesheet
-├── database.sql        # Database schema
-└── logo.png            # Application logo
+├── css/
+│   ├── dashboard.css
+│   ├── myorders.css
+│   └── styles.css
+├── dashboard.html
+├── db.php
+├── forget-password.html
+├── inbox.html
+├── index.html
+├── login.php
+├── logo.png
+├── myorders.html
+├── payment.html
+├── profile.html
+├── providers.html
+├── README.md
+├── review.html
+├── services.json
+├── signup.php
+└── .git/
 ```
 
 ## 🚀 Features
